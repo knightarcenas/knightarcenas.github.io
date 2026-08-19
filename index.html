@@ -42,6 +42,66 @@ body {
 .glow:hover {
   box-shadow: 0 0 20px rgba(59,130,246,0.6);
 }
+
+ /* 3D Navigation Buttons */
+.nav-btn {
+  position: relative;
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 10px;
+
+  color: #d1d5db;
+  background: linear-gradient(
+    145deg,
+    rgba(45, 45, 45, 0.75),
+    rgba(15, 15, 15, 0.75)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 4px 0 rgba(0, 0, 0, 0.45),
+    0 6px 14px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Top highlight */
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+
+/* Hover = button lifts */
+.nav-btn:hover {
+  color: #60a5fa;
+  transform: translateY(-3px);
+
+  border-color: rgba(59, 130, 246, 0.4);
+
+  box-shadow:
+    0 7px 0 rgba(0, 0, 0, 0.4),
+    0 10px 20px rgba(37, 99, 235, 0.2);
+}
+
+/* Click = button pushes down */
+.nav-btn:active {
+  transform: translateY(2px);
+
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.4),
+    0 4px 8px rgba(0, 0, 0, 0.25);
+}
 </style>
 </head>
 
@@ -57,14 +117,33 @@ body {
 </h1>
 
     <!-- STEP 2 (home button added here) -->
-    <nav class="flex gap-6 text-sm">
-      <a href="#home" class="hover:text-blue-400">Home</a>
-      <a href="#about" class="hover:text-blue-400">About</a>
-      <a href="#experience" class="hover:text-blue-400">Experience</a>
-      <a href="#skills" class="hover:text-blue-400">Skills</a>
-     <a href="#samples" class="hover:text-blue-400">Work Samples</a>
-      <a href="#contact" class="hover:text-blue-400">Contact</a>
-    </nav>
+   <nav class="flex gap-3 text-sm flex-wrap justify-end">
+
+  <a href="#home" class="nav-btn">
+    Home
+  </a>
+
+  <a href="#about" class="nav-btn">
+    About
+  </a>
+
+  <a href="#experience" class="nav-btn">
+    Experience
+  </a>
+
+  <a href="#skills" class="nav-btn">
+    Skills
+  </a>
+
+  <a href="#samples" class="nav-btn">
+    Work Samples
+  </a>
+
+  <a href="#contact" class="nav-btn">
+    Contact
+  </a>
+
+</nav>
 
   </div>
 </header>
