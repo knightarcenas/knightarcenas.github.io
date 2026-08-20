@@ -31,12 +31,47 @@ body {
 
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
+  transform: translateY(35px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+ .reveal-item {
+  opacity: 0;
+  transform: translateY(25px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.active .reveal-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.active .reveal-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.reveal.active .reveal-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.reveal.active .reveal-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.reveal.active .reveal-item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.reveal.active .reveal-item:nth-child(5) {
+  transition-delay: 0.5s;
 }
 
 .glow:hover {
@@ -331,7 +366,7 @@ body {
   <div class="space-y-8 max-w-3xl">
 
     <!-- MADAM MUSE -->
-<div class="glass p-6 rounded-xl">
+<div class="glass p-6 rounded-xl reveal-item">
   <h3 class="text-xl font-semibold mb-2">Madam Muse (April 2026–Present)</h3>
   <p class="text-sm text-gray-500 mb-3">Customer Support Specialist | Team Lead</p>
   <ul class="text-gray-400 space-y-1">
@@ -342,7 +377,7 @@ body {
 </div>
 
     <!-- THE BETTER FUTURE -->
-    <div class="glass p-6 rounded-xl">
+    <div class="glass p-6 rounded-xl reveal-item">
       <h3 class="text-xl font-semibold mb-2">The Better Future (2023–2025)</h3>
       <p class="text-sm text-gray-500 mb-3">Sales Representative</p>
       <ul class="text-gray-400 space-y-1">
@@ -353,7 +388,7 @@ body {
     </div>
 
     <!-- GHOSTEK -->
-    <div class="glass p-6 rounded-xl">
+    <div class="glass p-6 rounded-xl reveal-item">
       <h3 class="text-xl font-semibold mb-2">Ghostek (2020–2023)</h3>
       <p class="text-sm text-gray-500 mb-3">Customer Support - Email</p>
       <ul class="text-gray-400 space-y-1">
@@ -364,7 +399,7 @@ body {
     </div>
 
     <!-- INDESTRUCTIBLE SHOES -->
-    <div class="glass p-6 rounded-xl">
+    <div class="glass p-6 rounded-xl reveal-item">
       <h3 class="text-xl font-semibold mb-2">Indestructible Shoes (2018–2021)</h3>
       <p class="text-sm text-gray-500 mb-3">Customer Support - Chat & Email</p>
       <ul class="text-gray-400 space-y-1">
@@ -375,7 +410,7 @@ body {
     </div>
 
     <!-- AMAZON TRACKER -->
-    <div class="glass p-6 rounded-xl">
+    <div class="glass p-6 rounded-xl reveal-item">
       <h3 class="text-xl font-semibold mb-2">Amazon Tracker (2015–2018)</h3>
       <p class="text-sm text-gray-500 mb-3">Customer Support - Chat & Email</p>
       <ul class="text-gray-400 space-y-1">
@@ -402,7 +437,7 @@ body {
     <div class="grid md:grid-cols-2 gap-6">
 
       <!-- CUSTOMER SUPPORT -->
-      <div class="glass p-7 rounded-2xl glow">
+      <div class="glass p-7 rounded-2xl glow reveal-item">
 
    
 
@@ -430,7 +465,7 @@ body {
 
 
       <!-- TECHNICAL SUPPORT -->
-      <div class="glass p-7 rounded-2xl glow">
+      <div class="glass p-7 rounded-2xl glow reveal-item">
 
     
         <h3 class="text-2xl font-semibold mb-3">
@@ -457,7 +492,7 @@ body {
 
 
       <!-- ADMINISTRATIVE SUPPORT -->
-      <div class="glass p-7 rounded-2xl glow">
+      <div class="glass p-7 rounded-2xl glow reveal-item">
 
    
         <h3 class="text-2xl font-semibold mb-3">
@@ -484,7 +519,7 @@ body {
 
 
       <!-- TEAM LEAD -->
-      <div class="glass p-7 rounded-2xl glow">
+      <div class="glass p-7 rounded-2xl glow reveal-item">
 
      
 
@@ -527,18 +562,18 @@ body {
   <h2 class="text-3xl font-semibold mb-8">Core Skills</h2>
 
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-    <div class="bg-gray-900 p-4 rounded-xl text-center glow">Customer Support</div>
-    <div class="bg-gray-900 p-4 rounded-xl text-center glow">Technical Support</div>
-    <div class="bg-gray-900 p-4 rounded-xl text-center glow">Email Support</div>
-    <div class="bg-gray-900 p-4 rounded-xl text-center glow">Chat Support</div>
-    <div class="bg-gray-900 p-4 rounded-xl text-center glow">Team Leadership</div>
-    <div class="bg-gray-900 p-4 rounded-xl text-center glow">Administrative Support</div>
-    <div class="bg-gray-900 p-4 rounded-xl text-center glow">Data Entry</div>
-    <div class="bg-gray-900 p-4 rounded-xl text-center glow">Documentation</div>
-    <div class="bg-gray-900 p-4 rounded-xl text-center glow">Problem Solving</div>
-    <div class="bg-gray-900 p-4 rounded-xl text-center glow">Multitasking</div>
-    <div class="bg-gray-900 p-4 rounded-xl text-center glow">CRM Management</div>
-    <div class="bg-gray-900 p-4 rounded-xl text-center glow">Customer Retention</div>
+    <div class="bg-gray-900 p-4 rounded-xl text-center glow reveal-item">Customer Support</div>
+    <div class="bg-gray-900 p-4 rounded-xl text-center glow reveal-item">Technical Support</div>
+    <div class="bg-gray-900 p-4 rounded-xl text-center glow reveal-item">Email Support</div>
+    <div class="bg-gray-900 p-4 rounded-xl text-center glow reveal-item">Chat Support</div>
+    <div class="bg-gray-900 p-4 rounded-xl text-center glow reveal-item">Team Leadership</div>
+    <div class="bg-gray-900 p-4 rounded-xl text-center glow reveal-item">Administrative Support</div>
+    <div class="bg-gray-900 p-4 rounded-xl text-center glow reveal-item">Data Entry</div>
+    <div class="bg-gray-900 p-4 rounded-xl text-center glow reveal-item">Documentation</div>
+    <div class="bg-gray-900 p-4 rounded-xl text-center glow reveal-item">Problem Solving</div>
+    <div class="bg-gray-900 p-4 rounded-xl text-center glow reveal-item">Multitasking</div>
+    <div class="bg-gray-900 p-4 rounded-xl text-center glow reveal-item">CRM Management</div>
+    <div class="bg-gray-900 p-4 rounded-xl text-center glow reveal-item">Customer Retention</div>
   </div>
 </section>
 
