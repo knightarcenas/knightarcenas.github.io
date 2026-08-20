@@ -78,6 +78,60 @@ body {
   box-shadow: 0 0 20px rgba(59,130,246,0.6);
 }
 
+ /* ================================
+   ABOUT ME - FRAMER STYLE REVEAL
+================================ */
+
+.about-motion {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-motion .about-title {
+  opacity: 0;
+  transform: translateX(-80px) scale(0.96);
+  filter: blur(4px);
+  transition:
+    opacity 0.9s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s ease;
+}
+
+.about-motion .about-text {
+  opacity: 0;
+  transform: translateX(80px);
+  filter: blur(4px);
+  transition:
+    opacity 0.9s ease 0.15s,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s,
+    filter 0.9s ease 0.15s;
+}
+
+.about-motion .about-line {
+  width: 0;
+  opacity: 0;
+  transition:
+    width 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s,
+    opacity 0.4s ease 0.1s;
+}
+
+.about-motion.active .about-title {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  filter: blur(0);
+}
+
+.about-motion.active .about-text {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+.about-motion.active .about-line {
+  width: 70px;
+  opacity: 1;
+}
+
  /* Subtle 3D Navigation */
 .nav-btn {
   position: relative;
@@ -310,13 +364,38 @@ body {
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="px-6 md:px-16 py-24 border-t border-gray-800 reveal">
-  <h2 class="text-3xl font-semibold mb-6">About Me</h2>
-  <p class="text-gray-300 max-w-3xl">
- I'm a results-driven Customer Support Specialist and Virtual Assistant with over 10 years of experience supporting customers, teams, and daily business operations.
-  I help businesses stay organized, resolve issues efficiently, and maintain smooth workflows through reliable customer support and administrative assistance.
-  My focus is accuracy, efficiency, clear communication, and delivering a consistent high-quality experience.
-  </p>
+<section
+  id="about"
+  class="px-6 md:px-16 py-24 border-t border-gray-800 about-motion"
+>
+
+  <div class="max-w-3xl">
+
+    <div class="flex items-center gap-4 mb-6">
+
+      <div class="about-line h-[2px] bg-blue-400"></div>
+
+      <h2 class="text-3xl font-semibold about-title">
+        About Me
+      </h2>
+
+    </div>
+
+    <p class="text-gray-300 about-text">
+      I'm a results-driven Customer Support Specialist and Virtual Assistant
+      with over 10 years of experience supporting customers, teams, and daily
+      business operations.
+
+      I help businesses stay organized, resolve issues efficiently, and
+      maintain smooth workflows through reliable customer support and
+      administrative assistance.
+
+      My focus is accuracy, efficiency, clear communication, and delivering
+      a consistent high-quality experience.
+    </p>
+
+  </div>
+
 </section>
 
 <!-- RESULTS -->
@@ -627,7 +706,7 @@ body {
 document.addEventListener('DOMContentLoaded', () => {
 
   // ===== REVEAL =====
-  const reveals = document.querySelectorAll('.reveal');
+  const reveals = document.querySelectorAll('.reveal, .about-motion');
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
