@@ -190,6 +190,84 @@ body {
 .nav-btn:active {
   transform: translateY(1px);
 }
+
+ /* ================================
+   ABOUT STATS - FRAMER STYLE
+================================ */
+
+.about-stats {
+  opacity: 0;
+  transform: translateY(50px) scale(0.96);
+  filter: blur(6px);
+  transition:
+    opacity 1s ease,
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1s ease;
+}
+
+.about-stats.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Individual stat cards */
+
+.stat-item {
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+  transition:
+    opacity 0.7s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-stats.active .stat-item:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.15s;
+}
+
+.about-stats.active .stat-item:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.3s;
+}
+
+.about-stats.active .stat-item:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.45s;
+}
+
+/* Number styling */
+
+.stat-number {
+  display: inline-block;
+  transition:
+    transform 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+.stat-item:hover .stat-number {
+  transform: scale(1.08);
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.45);
+}
+
+/* Bottom description */
+
+.stats-description {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.about-stats.active .stats-description {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.65s;
+}
 </style>
 </head>
 
@@ -398,44 +476,104 @@ body {
 
 </section>
 
-<!-- RESULTS -->
-<section class="px-6 md:px-16 py-24 border-t border-gray-800 reveal">
+<!-- RESULTS / ABOUT STATS -->
 
-  <div class="flex justify-center gap-12 mt-6 text-center flex-wrap">
+<section
+  id="about-stats"
+  class="px-6 md:px-16 py-20 border-t border-gray-800 about-stats"
+>
 
-    <!-- Years Experience -->
-    <div>
-      <h2 class="text-4xl font-bold text-blue-400">
-        <span class="counter" data-target="10">0</span>+
-      </h2>
-      <p class="text-gray-400 text-sm">Years Experience</p>
+  <div class="max-w-5xl mx-auto">
+
+    <!-- Stats -->
+
+    <div class="flex justify-center items-stretch text-center flex-wrap">
+
+      <!-- YEARS EXPERIENCE -->
+
+      <div class="stat-item px-8 md:px-14 py-4">
+
+        <h2 class="text-5xl md:text-6xl font-bold text-blue-400">
+          <span
+            class="counter stat-number"
+            data-target="10"
+          >0</span>+
+        </h2>
+
+        <p class="text-gray-400 text-sm mt-2">
+          Years Experience
+        </p>
+
+      </div>
+
+
+      <!-- DIVIDER -->
+
+      <div class="hidden md:block w-px bg-gray-800 my-4"></div>
+
+
+      <!-- COMPANIES -->
+
+      <div class="stat-item px-8 md:px-14 py-4">
+
+        <h2 class="text-5xl md:text-6xl font-bold text-blue-400">
+          <span
+            class="counter stat-number"
+            data-target="5"
+          >0</span>+
+        </h2>
+
+        <p class="text-gray-400 text-sm mt-2">
+          Companies Supported
+        </p>
+
+      </div>
+
+
+      <!-- DIVIDER -->
+
+      <div class="hidden md:block w-px bg-gray-800 my-4"></div>
+
+
+      <!-- ROLES -->
+
+      <div class="stat-item px-8 md:px-14 py-4">
+
+        <h2 class="text-5xl md:text-6xl font-bold text-blue-400">
+          <span
+            class="counter stat-number"
+            data-target="4"
+          >0</span>+
+        </h2>
+
+        <p class="text-gray-400 text-sm mt-2">
+          Roles & Functions
+        </p>
+
+      </div>
+
     </div>
 
-    <!-- Companies Supported -->
-    <div>
-      <h2 class="text-4xl font-bold text-blue-400">
-        <span class="counter" data-target="5">0</span>+
-      </h2>
-      <p class="text-gray-400 text-sm">Companies Supported</p>
-    </div>
 
-    <!-- Roles & Functions -->
-    <div>
-      <h2 class="text-4xl font-bold text-blue-400">
-        <span class="counter" data-target="4">0</span>+
-      </h2>
-      <p class="text-gray-400 text-sm">Roles & Functions</p>
-    </div>
+    <!-- Description -->
+
+    <p
+      class="stats-description text-center text-gray-500 text-sm mt-10"
+    >
+      Customer Support
+      <span class="text-gray-700 mx-2">·</span>
+
+      Technical Support
+      <span class="text-gray-700 mx-2">·</span>
+
+      Administration
+      <span class="text-gray-700 mx-2">·</span>
+
+      Team Coordination
+    </p>
 
   </div>
 
-  <p class="text-center text-gray-500 text-sm mt-6">
-    Customer Support · Technical Support · Administration · Team Coordination
-  </p>
-
-</section>
-
-  </div>
 </section>
 
 <!-- EXPERIENCE -->
@@ -706,7 +844,7 @@ body {
 document.addEventListener('DOMContentLoaded', () => {
 
   // ===== REVEAL =====
-  const reveals = document.querySelectorAll('.reveal, .about-motion');
+  const reveals = document.querySelectorAll('.reveal, .about-motion, .about-stats');
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
